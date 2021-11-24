@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Banking Solution</title>
+    <style>
+        #main{
+            width:400px;
+            height:300px;
+            margin:0 auto;
+            margin-top:100px;
+            border:1px solid white;
+        }
+        #main h1{
+            text-align:center;
+            color:white;
+        }
+    </style>
+</head>
+<body bgcolor="green">
+<!--    <h1>Balance Enquiry?</h1>-->
+    <div id="main">
+        <h1>Balance Enquiry</h1>
+        <a href="{% url 'back' %}">Back</a>
+        {% if enq %}
+        <table border="1" style="margin:0 auto; width:80%; color:white">
+            <tr>
+                <td>Account No</td>
+                <td>{{enq.acno}}</td>
+            </tr>
+            <tr>
+                <td>Account Holder Name</td>
+                <td>{{enq.name}}</td>
+            </tr>
+            <tr>
+                <td>Balance</td>
+                <td>{{enq.balance}}</td>
+            </tr>
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>

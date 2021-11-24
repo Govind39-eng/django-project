@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Banking Solution</title>
+    <style>
+        #main{
+            width:500px;
+            height:auto;
+            min-height:500px;
+            margin:0 auto;
+            margin-top:100px;
+            border:1px solid white
+        }
+        #main h1{
+            text-align:center;
+            color:white;
+        }
+        #main a{
+            display:block;
+            text-align:center;
+            text-decoration:none;
+            color:red;
+            font-size:25px;
+        }
+    </style>
+</head>
+<body bgcolor="green">
+<!--    <h1>View Statement</h1>-->
+    <div id="main">
+        <h1>View Statement</h1>
+        <a href="{% url 'back' %}">Back</a>
+        <table border="1" style="margin:0 auto; width:90%; color:white;">
+            <tr>
+                <th>From Account</th>
+                <th>To Account</th>
+                <th>Operation</th>
+                <th>Amount</th>
+                <th>Operation Date</th>
+            </tr>
+            {% for s in stmt %}
+                <tr>
+                    <td>{{s.fromaccount}}</td>
+                    <td>{{s.toaccount}}</td>
+                    <td>{{s.operation}}</td>
+                    <td>{{s.amount}}</td>
+                    <td>{{s.opdate}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Banking Solution</title>
+    <style>
+        #main{
+            width:1000px;
+            height:auto;
+            min-height:800px;
+            margin:0 auto;
+            margin-top:100px;
+            border:1px solid white;
+            background:pink;
+        }
+        #main h1{
+            color:white;
+            text-align:center;
+        }
+    </style>
+</head>
+<body bgcolor="green">
+  <div id="main">
+    <h1>View All Accounts</h1>
+      <a href="{% url 'back' %}" style="display:block; text-align:center; text-decoration:none;">back</a>
+      <table border="1" bordercolor="white" style="width:80%; margin:0 auto; color:white; background:black;2">
+          <tr>
+              <th>Account No</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Contact No</th>
+              <th>Email Address</th>
+              <th>Pan No</th>
+              <th>Aadhar No</th>
+              <th>Balance</th>
+              <th>Delete</th>
+          </tr>
+          {% for a in ac %}
+            <tr>
+                <td>{{a.acno}}</td>
+                <td>{{a.name}}</td>
+                <td>{{a.address}}</td>
+                <td>{{a.contactno}}</td>
+                <td>{{a.emailaddress}}</td>
+                <td>{{a.panno}}</td>
+                <td>{{a.aadharno}}</td>
+                <td>{{a.balance}}</td>
+                <td><a href="{% url 'deleteaccount' a.acno %}" style="display:block; text-align:center; text-decoration:none;">delete</a></td>
+            </tr>
+          {% endfor %}
+      </table>
+  </div>
+
+</body>
+</html>
